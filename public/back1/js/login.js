@@ -6,7 +6,7 @@ $(function () {
    *        (2) 密码不能为空, 长度为6-12位
    * */
     //进行表单校验初始化
-    $('form').bootstrapValidator({
+    $('#form').bootstrapValidator({
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
             invalid: 'glyphicon glyphicon-remove',

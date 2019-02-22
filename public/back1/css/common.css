@@ -1,3 +1,14 @@
+a:link,
+a:visited,
+a:hover,
+a:active{
+    text-decoration: none;
+}
+ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
 .body_bg {
     background-color: #222D32;
 }
@@ -9,4 +20,66 @@
     line-height: 40px;
     font-size: 20px;
     text-align: center;
+}
+
+.lt_aside {
+    width: 180px;
+    height: 100% ;
+    background-color: #222D32;
+    position:fixed;
+    top: 0;
+    left: 0;
+}
+.lt_aside .brand {
+    height: 50px;
+    width: 180px;
+    background-color: #367FA9;
+    line-height: 50px;
+    text-align: center;
+    font-size: 24px;
+}
+.lt_aside .brand a{
+    color: #fff;
+}
+.lt_aside .user {
+    width: 180px;
+    height: 180px;
+    margin-top: 30px;
+}
+.lt_aside .user img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto ;
+}
+.lt_aside .user p {
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;;
+}
+.lt_aside .nav {
+    height: 130px;
+    width:100% ;
+}
+.lt_aside .nav a {
+    padding-left: 40px;
+    height: 40px;
+    color: #fff;
+    line-height: 40px;
+    display: block;
+}
+.lt_aside .nav a.current {
+    border-left: 3px solid #069;
+}
+.lt_aside .nav a i {
+    margin-right: 5px;
+}
+.lt_aside .nav .child a {
+    padding-left: 60px;
+}
+.lt_aside .nav .child {
+    display: none;
 }

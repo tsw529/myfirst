@@ -22,7 +22,7 @@
     </div>
     <!-- 用户 -->
     <div class="user">
-      <img src="./images/default.png" alt="">
+      <img src="./images/02.jpg" alt="">
       <p>超级管理员</p>
     </div>
     <!-- 导航 -->
@@ -64,18 +64,17 @@
         <table class="table table-hover table-bordered mt_20">
           <thead>
             <tr>
-              <th width='10%'>序号</th>
-              <th width='30%'>一级分类名</th>
-              <th width='30%'>二级分类名</th>
-              <th width='30%'>二级分类LOGO</th>
+              <th>序号</th>
+              <th>一级分类名称</th>
+              <th>二级分类名称</th>
+              <th>二级分类LOGO</th>
             </tr>
           </thead>
           <tbody>
             <!-- 挖个坑 -->
-            
           </tbody>
         </table>
-          <!-- 分页插件 -->
+
         <div class="pull-right">
           <ul id="paginator"></ul>
         </div>
@@ -94,34 +93,43 @@
             <h4 class="modal-title">添加分类</h4>
           </div>
           <div class="modal-body">
+
             <div class="form-group">
               <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                <span id="dropdownText">请选择一级分类</span>
-               <span class="caret"></span>  <!-- 小箭头 -->
-              </button>
-              <ul class="dropdown-menu">
-               <!-- 挖个小坑 -->
-              </ul>
-            </div>
+                <!-- 按钮 -->
+                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                  <span id="dropdownText">请选择一级分类</span>
+                  <span class="caret"></span>    <!-- 小箭头 -->
+                </button>
+                <!-- 切换的下拉菜单 -->
+                <ul class="dropdown-menu">
+                  <!-- 挖个坑 -->
+                </ul>
+              </div>
 
-            <!-- 准备一个隐藏域  专门用于提交数据 -->
-            <input type="hidden" name="categoryId">
-          </div>
+              <!-- 准备一个隐藏域, 专门用于提交数据 -->
+              <input type="hidden" name="categoryId">
+            </div>
 
             <div class="form-group">
               <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类">
             </div>
+
             <div class="form-group">
               <label class="btn btn-default" for="fileupload">选择图片</label>
-              <input type="file" name="pic1" id="fileupload" data-url
-              ="/category/addSecondCategoryPic" style="display:none;">
+              <!-- 配置必要的属性, input, type类型 file
+                   1. name 后台用于接收图片文件的
+                   2. data-url 配置插件将来上传文件时, 请求的后台接口地址
+                   3. post 只要是文件上传, 必然是 post 请求, 默认就是 post
+              -->
+              <input data-url="/category/addSecondCategoryPic" name="pic1" type="file" id="fileupload" style="display: none;">
             </div>
 
             <div class="form-group" id="imgBox">
-              <img style="height:100px;" src="./images/none.png" alt="">
+              <img style="height: 100px;" src="./images/none.png" alt="">
               <input type="hidden" name="brandLogo">
             </div>
+
 
           </div>
           <div class="modal-footer">
@@ -160,26 +168,28 @@
 
   <script type="text/html" id="secondTpl">
     {{ each rows v i }}
-    <tr>
-      <td>{{ i + 1 + (page-1)*size }}</td>
-      <td>{{v.categoryName}}</td>
-      <td>{{v.brandName}}</td>
-      <td><img style="height:50px" src="{{v.brandLogo}}" alt=""></td>
-    </tr>
+      <tr>
+        <td>{{ i + 1 + (page-1) * size }}</td>
+        <td>{{ v.categoryName }}</td>
+        <td>{{ v.brandName }}</td>
+        <td>
+          <img style="height: 50px;" src="{{ v.brandLogo }}" alt="">
+        </td>
+      </tr>
     {{ /each }}
   </script>
 
-  <!-- 二级分类模态框的下拉菜单 -->
   <script type="text/html" id="dropdownTpl">
     {{ each rows v i }}
-
-    <li><a href="#">{{v.categoryName}}</a></li>
-    {{/each}}
+      <li><a data-id="{{ v.id }}" href="#">{{ v.categoryName }}</a></li>
+    {{ /each }}
   </script>
+
 
   <script src="./lib/jquery/jquery.js"></script>
   <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
   <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>

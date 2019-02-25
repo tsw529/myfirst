@@ -22,7 +22,7 @@
     </div>
     <!-- 用户 -->
     <div class="user">
-      <img src="./images/default.png" alt="">
+      <img src="./images/02.jpg" alt="">
       <p>超级管理员</p>
     </div>
     <!-- 导航 -->
@@ -32,8 +32,8 @@
         <li>
           <a class="category" href="javascript:;"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
           <div class="child" style="display: block;">
-            <a href="first.html">一级分类</a>
-            <a class="current" href="second.html">二级分类</a>
+            <a class="current" href="first.html">一级分类</a>
+            <a href="second.html">二级分类</a>
           </div>
         </li>
         <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
@@ -54,7 +54,7 @@
       <ol class="breadcrumb mt_20">
         <li><a href="index.html">管理系统</a></li>
         <li class="active">分类管理</li>
-        <li class="active">二级分类</li>
+        <li class="active">一级分类</li>
       </ol>
 
       <div class="lt_content">
@@ -64,18 +64,15 @@
         <table class="table table-hover table-bordered mt_20">
           <thead>
             <tr>
-              <th width='10%'>序号</th>
-              <th width='30%'>一级分类名</th>
-              <th width='30%'>二级分类名</th>
-              <th width='30%'>二级分类LOGO</th>
+              <th width='20%'>序号</th>
+              <th width='80%'>一级分类名</th>
             </tr>
           </thead>
           <tbody>
             <!-- 挖个坑 -->
-            
           </tbody>
         </table>
-          <!-- 分页插件 -->
+
         <div class="pull-right">
           <ul id="paginator"></ul>
         </div>
@@ -95,34 +92,8 @@
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <div class="dropdown">
-              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                <span id="dropdownText">请选择一级分类</span>
-               <span class="caret"></span>  <!-- 小箭头 -->
-              </button>
-              <ul class="dropdown-menu">
-               <!-- 挖个小坑 -->
-              </ul>
+              <input type="text" name="categoryName" class="form-control" placeholder="请输入一级分类">
             </div>
-
-            <!-- 准备一个隐藏域  专门用于提交数据 -->
-            <input type="hidden" name="categoryId">
-          </div>
-
-            <div class="form-group">
-              <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类">
-            </div>
-            <div class="form-group">
-              <label class="btn btn-default" for="fileupload">选择图片</label>
-              <input type="file" name="pic1" id="fileupload" data-url
-              ="/category/addSecondCategoryPic" style="display:none;">
-            </div>
-
-            <div class="form-group" id="imgBox">
-              <img style="height:100px;" src="./images/none.png" alt="">
-              <input type="hidden" name="brandLogo">
-            </div>
-
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
@@ -158,28 +129,18 @@
     </div>
   </div>
 
-  <script type="text/html" id="secondTpl">
+  <script type="text/html" id="firstTpl">
     {{ each rows v i }}
-    <tr>
-      <td>{{ i + 1 + (page-1)*size }}</td>
-      <td>{{v.categoryName}}</td>
-      <td>{{v.brandName}}</td>
-      <td><img style="height:50px" src="{{v.brandLogo}}" alt=""></td>
-    </tr>
+      <tr>
+        <!-- 当前页第几条 + 前面页总计条数 -->
+        <td>{{ i + 1 + (page-1) * size }}</td>
+        <td>{{ v.categoryName }}</td>
+      </tr>
     {{ /each }}
   </script>
 
-  <!-- 二级分类模态框的下拉菜单 -->
-  <script type="text/html" id="dropdownTpl">
-    {{ each rows v i }}
-
-    <li><a href="#">{{v.categoryName}}</a></li>
-    {{/each}}
-  </script>
 
   <script src="./lib/jquery/jquery.js"></script>
-  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
-  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
@@ -187,7 +148,7 @@
   <script src="./lib/nprogress/nprogress.js"></script>
   <script src="./js/common.js"></script>
   <script src="./js/isLogin.js"></script>
-  <script src="./js/second.js"></script>
+  <script src="./js/first.js"></script>
 
 </body>
 

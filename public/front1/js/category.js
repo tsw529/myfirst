@@ -11,7 +11,7 @@ $(function () {
             var htmlStr = template('leftTpl', info);
             $('.lt_category_left ul').html(htmlStr);
             //默认一进入页面  渲染第一个一级分类对应的二级分类
-            // renderById(info.rows[0].id);
+            renderById(info.rows[0].id);
         }
     });
 

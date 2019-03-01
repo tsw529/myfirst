@@ -103,4 +103,7 @@
 
     //清空内容
     $('.search_input').val('');
+
+    //添加完搜索历史后   跳转到搜索列表页
+    location.href = 'searchList.html?key='+key;
   })
